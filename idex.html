@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ร้านโอ้ ! ผลไม้ | ผลไม้สดจากสวน</title>
+  
+  <style>
+    
+body {
+  font-family: 'Prompt', Arial, sans-serif; 
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8; 
+  color: #333;
+}
+
+
+header {
+  background-color: #1b1c1b; 
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo {
+  font-size: 1.8em; 
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0 15px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #FFD700; 
+}
+
+.cart {
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+
+main {
+  padding: 20px;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+
+.hero {
+  background-color: #8776f608; 
+  color: #333;
+  text-align: center;
+  padding: 80px 20px;
+  margin-bottom: 30px;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hero h1 {
+  font-size: 2.8em; 
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2em;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #FF6347;
+  color: white;
+  padding: 12px 30px; 
+  text-decoration: none;
+  border-radius: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #E5533A; 
+}
+
+
+.products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #4CAF50;
+  font-size: 2em;
+}
+
+.product-grid {
+  /* ปรับปรุงเพื่อให้เรียงแนวนอนและรองรับมือถือ */
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 25px;
+}
+
+.product-card {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  text-align: center;
+  /* กำหนดความกว้างเริ่มต้น: 3 ชิ้นต่อแถว */
+  width: calc(33.33% - 25px); 
+  max-width: 350px; /* เพิ่ม max-width เพื่อควบคุมขนาด */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 200px; 
+  object-fit: cover; 
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.price {
+  color: #FF6347;
+  font-weight: bold;
+  font-size: 1.4em; 
+  margin: 10px 0;
+}
+
+.product-card button {
+  background-color: #FFD700;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+  background-color: #FFC700;
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 50px;
+  font-size: 0.9em;
+}
+
+
+
+
+@media (max-width: 992px) {
+  .product-card {
+    /* บนแท็บเล็ต: 2 ชิ้นต่อแถว */
+    width: calc(50% - 20px); 
+  }
+
+  .hero h1 {
+    font-size: 2.2em;
+  }
+}
+
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column; 
+    padding: 15px 10px;
+  }
+  
+  nav ul {
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    padding: 0 10px;
+    font-size: 0.9em;
+  }
+  
+  .cart {
+    margin-top: 10px;
+  }
+
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.8em;
+  }
+  
+  .product-grid {
+    gap: 15px;
+  }
+
+  .product-card {
+    /* บนมือถือ: 1 ชิ้นต่อแถว */
+    width: 100%; 
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🍎 โอ้ ! ผลไม้</div>
+    <nav>
+      <ul>
+        <li><a href="#">หน้าแรก</a></li>
+        <li><a href="#">สินค้าทั้งหมด</a></li>
+        <li><a href="#">โปรโมชั่น</a></li>
+        <li><a href="#">ติดต่อเรา</a></li>
+      </ul>
+    </nav> 
+    
+    <div class="cart">🛒 (99+)</div>
+  </header>
+
+  <main>
+      
+    <section class="hero">
+      <h1>ผลไม้สดใหม่ ส่งตรงถึงบ้านคุณ!</h1>
+      <p>รับประกันความหวาน สดจากสวนทุกวัน</p>
+      <a href="#" class="btn">ช้อปเลย!</a>
+    </section>
+
+    <section class="products">
+      <h2>✨ ผลไม้แนะนำประจำสัปดาห์</h2>
+      <div class="product-grid">
+          
+        <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoJ6vKJOT7-k7q8VOinalUrSpL9SnvpL83_Q&s" alt="แอปเปิลแดงสด">
+          <h3>แอปเปิลแดง</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://www.cleanjuice.com/wp-content/uploads/2023/06/clean_juice_mango_benefits_hero-3-scaled-1.jpeg" alt="มะม่วงน้ำดอกไม้">
+          <h3>มะม่วงน้ำดอกไม้</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+          
+        <div class="product-card">
+        <img src="https://f.btwcdn.com/store-43065/product/a390601b-00d0-a9e2-0d5e-600fc736be59.jpg" alt="องุ่นไร้เมล็ด">
+          <h3>องุ่นไร้เมล็ด</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+          <div class="product-card">
+        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1500968063/attached_image_th/%25e0%25b8%25aa%25e0%25b9%2589%25e0%25b8%25a1.jpg" alt="ส้ม">
+          <h3>ส้ม</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+        <div class="product-card">
+        <img src="https://static.cdntap.com/tap-assets-prod/wp-content/uploads/sites/25/2021/04/rambutan2.jpg?width=700&quality=95" alt="เงาะ">
+          <h3>เงาะ</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+        <div class="product-card">
+        <img src="https://s.isanook.com/he/0/ud/1/9753/banana.jpg" alt="กล้วย">
+          <h3>กล้วย</h3>
+          <p class="price">฿ 99 / หวี</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+        <div class="product-card">
+        <img src="https://s.isanook.com/he/0/ud/2/13057/13057-thumbnail.jpg" alt="เเก้วมังกร">
+          <h3>เเก้วมังกร</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+
+        <div class="product-card">
+        <img src="https://static.thairath.co.th/media/dFQROr7oWzulq5FZXUxnKrZUaeweQAtrz6GjZUtPSnJtmcTj5mIOFlxIo1QyJ949cCM.jpg" alt="ลำไย">
+          <h3>ลำไย/h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+        </div>
+        <div class="product-card">
+        <img src="https://cms.dmpcdn.com/food/2022/11/17/2ed5b6b0-6653-11ed-8e6b-39914cca50e1_webp_original.jpg" alt="พุทรา">
+          <h3>พุทรา</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+         </div>
+         <div class="product-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Erdbeeren-WJP-1.jpg/1200px-Erdbeeren-WJP-1.jpg" alt="สตอเบอรี่">
+          <h3>สตอเบอรี่</h3>
+          <p class="price">฿ 99 / กก.</p>
+          <button>หยิบใส่ตะกร้า</button>
+         </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 โอ้ ! ผลไม้. สงวนลิขสิทธิ์</p>
+    <p>ติดต่อ: 087-886-8854 | omgthailand888.gmail.com</p>
+  </footer>
+
+</body>
+</html>
